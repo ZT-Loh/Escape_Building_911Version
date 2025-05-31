@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://c153dpk8inbi7"]
+
+[ext_resource type="Texture2D" uid="uid://11xp77d4l2r" path="res://Google Dino Run 911 Vers/Aeroplane.png" id="1_1hm0c"]
+[ext_resource type="Script" uid="uid://bfeufp0vbi85n" path="res://Scene/player.gd" id="1_y8w33"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y8w33"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1, 0, 0)
+emission_shape_scale = Vector3(10, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector3(-90, 0, 0)
+linear_accel_min = 67.82
+linear_accel_max = 67.82
+scale_max = 5.0
+color = Color(0.941176, 0.937255, 0.776471, 1)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_y8w33")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_y8w33")
+
+[node name="Aeroplane" type="Sprite2D" parent="."]
+position = Vector2(50, 5.00001)
+scale = Vector2(0.404, 0.54)
+texture = ExtResource("1_1hm0c")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-28, -545)
+polygon = PackedVector2Array(35, 528, 44, 539, 67, 533, 91, 532, 107, 535, 116, 545, 122, 554, 121, 560, 120, 562, 118, 563, 118, 564, 116, 564, 113, 564, 105, 564, 103, 567, 88, 567, 53, 565, 49, 565, 44, 562, 42, 559, 34, 549, 34, 545, 33, 542, 32, 533)

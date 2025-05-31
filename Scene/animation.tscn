@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=4 uid="uid://v85u27vsm0gd"]
+
+[ext_resource type="Script" uid="uid://7bwygviqlj2" path="res://Scene/animation.gd" id="1_p55en"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_mfpsi"]
+_data = PackedByteArray("AAADAAUAAAABAAAAlgAAAGQAAADsAQAAUklGRuQBAABXRUJQVlA4TNcBAAAvlcAYED+gqG0bqMxa/miu/UfDQAAiPhlqi1VOUGoCoEFoxUn/NkxOm/8AAMD/t5I8yHYRyyDH2fa4jf4ABNiaAhHVWW5AyfWf4KdzAFKus9CpyczC+3vjJ07KYBDRf4eSJFlGLeVNdYSvoJ9Ph2E2cKZaEcRJdWbyIEomP30oAceZG5BdsFgQf7oQnQSFpVpTNsYY3eI1Oo8FsQvu4Eu0QClJ9KaMR2qzZw7e4kG35cUCQbydl8cyDsPQJB2DBAtiBwdRcqA4RVgrgogdKvZoEG+vBrVvArwtBFRTCLj8HbiN5+URfhpWctaA25ITjwW9noJQ7VHxbh/AIMGDiGRB/7YfExrEV4IA7gTdFp3vHkTGoE9zFDzocK6OkKwIErng/08nf6uL7guTWnNPd4YUr3mcde6LnKTQt9Xa9SnmvVIkO0auuTsUnd+V9JGsbv5QPpKr3hjd7/UpzOH3S3C2toJq1vmEMbXf4895+fid5qVNPntbreNQOz4I3j9tl9iGatX6Jo8dRezd8lhEnoc2uepcshl6agrBlvHJGAhTRtNTKs1HjQM0uui7i6B+b3Ti0dHF9BbxPtzBuustStNi0dHmH2jr4dF3/UXx8H1ELIKyucIP2UMA")
+size_override = Vector2(150, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p55en"]
+atlas = SubResource("PortableCompressedTexture2D_mfpsi")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cealw"]
+atlas = SubResource("PortableCompressedTexture2D_mfpsi")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asvtl"]
+atlas = SubResource("PortableCompressedTexture2D_mfpsi")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v0d1"]
+atlas = SubResource("PortableCompressedTexture2D_mfpsi")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i33n5"]
+atlas = SubResource("PortableCompressedTexture2D_mfpsi")
+region = Rect2(50, 50, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tf7of"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p55en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cealw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asvtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v0d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i33n5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_tf7of")
+frame = 1
+frame_progress = 0.0638538
+script = ExtResource("1_p55en")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://Google Dino Run 911 Vers/explode.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f03f35749c06e1cc885e988a93e7b09d"

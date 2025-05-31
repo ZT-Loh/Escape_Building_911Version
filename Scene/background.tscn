@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://ki17lyntxk2w"]
+
+[ext_resource type="Texture2D" uid="uid://diw43ssks7jig" path="res://Google Dino Run 911 Vers/Tower_Background.png" id="1_2tbj5"]
+[ext_resource type="Script" uid="uid://b1qkdgos6j3hu" path="res://Scene/background.gd" id="1_g008t"]
+[ext_resource type="PackedScene" uid="uid://c153dpk8inbi7" path="res://Scene/player.tscn" id="2_g008t"]
+[ext_resource type="AudioStream" uid="uid://bnqkw828m2mxf" path="res://Google Dino Run 911 Vers/Audio/See you again但是直接二倍速小孩子音让大家直接听懂 [TubeRipper.com].mp3" id="4_g008t"]
+[ext_resource type="PackedScene" uid="uid://bmsiv34uipd1f" path="res://Scene/visible_on_screen_notifier_2d.tscn" id="5_0k6rt"]
+[ext_resource type="FontFile" uid="uid://dio0vawax0t0d" path="res://Google Dino Run 911 Vers/bytebounce/ByteBounce.ttf" id="6_d8sss"]
+[ext_resource type="Script" uid="uid://dba20udg35l5e" path="res://Scene/ui.gd" id="6_eirsi"]
+[ext_resource type="Texture2D" uid="uid://dmo0h81a0wd7" path="res://Google Dino Run 911 Vers/Jump_button.png" id="8_mci6h"]
+[ext_resource type="Texture2D" uid="uid://dymjcx5lqhtkt" path="res://Google Dino Run 911 Vers/Pause_button2.png" id="9_8fa28"]
+[ext_resource type="Texture2D" uid="uid://ygjggcaqoh07" path="res://Google Dino Run 911 Vers/unmuted.png" id="10_8fa28"]
+[ext_resource type="AudioStream" uid="uid://dijufy5jtrnir" path="res://Google Dino Run 911 Vers/Audio/big-plane-sound-effect-247601.mp3" id="11_3q56t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tbj5"]
+size = Vector2(1329, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g008t"]
+size = Vector2(1324, 355.5)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_g008t")
+
+[node name="TowerBackground" type="Sprite2D" parent="."]
+position = Vector2(638, 360)
+scale = Vector2(2.654, 3)
+texture = ExtResource("1_2tbj5")
+
+[node name="Player" parent="." instance=ExtResource("2_g008t")]
+position = Vector2(186, 11)
+
+[node name="Border" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Border"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(635.5, 660)
+shape = SubResource("RectangleShape2D_2tbj5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(653, 177.25)
+shape = SubResource("RectangleShape2D_g008t")
+
+[node name="ObstacleTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Background_Song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_g008t")
+volume_db = 1.874
+bus = &"Music"
+
+[node name="Visible" parent="." instance=ExtResource("5_0k6rt")]
+
+[node name="UI" type="CanvasLayer" parent="." groups=["UI"]]
+script = ExtResource("6_eirsi")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.5
+offset_right = 40.5
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Score" type="Label" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_d8sss")
+theme_override_font_sizes/font_size = 50
+text = "Time: 0s"
+
+[node name="ScoreTimer" type="Timer" parent="UI"]
+autostart = true
+
+[node name="Touch_up_Button" type="TouchScreenButton" parent="."]
+position = Vector2(50, 620)
+scale = Vector2(0.515636, 0.486615)
+texture_normal = ExtResource("8_mci6h")
+action = "Jump"
+
+[node name="Pause_button" type="TouchScreenButton" parent="."]
+process_mode = 3
+position = Vector2(32, 27)
+scale = Vector2(0.3, 0.316)
+texture_normal = ExtResource("9_8fa28")
+
+[node name="Audio_button" type="TextureButton" parent="."]
+process_mode = 3
+offset_left = 1186.0
+offset_top = 16.0
+offset_right = 1411.0
+offset_bottom = 241.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("10_8fa28")
+
+[node name="SFX_Effect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_3q56t")
+bus = &"SFX"
+
+[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
+[connection signal="timeout" from="UI/ScoreTimer" to="UI" method="_on_score_timer_timeout"]
+[connection signal="pressed" from="Pause_button" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Audio_button" to="." method="_on_audio_button_pressed"]

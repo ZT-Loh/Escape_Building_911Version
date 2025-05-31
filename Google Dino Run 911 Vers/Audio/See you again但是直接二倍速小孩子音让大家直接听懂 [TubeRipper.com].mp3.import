@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnqkw828m2mxf"
+path="res://.godot/imported/See you again但是直接二倍速小孩子音让大家直接听懂 [TubeRipper.com].mp3-c20300dbe15808705259439db401c4b3.mp3str"
+
+[deps]
+
+source_file="res://Google Dino Run 911 Vers/Audio/See you again但是直接二倍速小孩子音让大家直接听懂 [TubeRipper.com].mp3"
+dest_files=["res://.godot/imported/See you again但是直接二倍速小孩子音让大家直接听懂 [TubeRipper.com].mp3-c20300dbe15808705259439db401c4b3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

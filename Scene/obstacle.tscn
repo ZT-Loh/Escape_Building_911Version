@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhhmw8iy50dg3"]
+
+[ext_resource type="Texture2D" uid="uid://cmguwg0rqb1xy" path="res://Google Dino Run 911 Vers/Twin-tower.png" id="1_606mv"]
+[ext_resource type="Script" uid="uid://bmqlcn8tmdnh1" path="res://Scene/obstacle.gd" id="1_xod6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vl0u"]
+size = Vector2(49, 52)
+
+[node name="Obstacle" type="Area2D" groups=["Tower"]]
+collision_layer = 2
+script = ExtResource("1_xod6l")
+
+[node name="Twin-tower" type="Sprite2D" parent="."]
+position = Vector2(82, 83)
+scale = Vector2(0.588, 0.638)
+texture = ExtResource("1_606mv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(79.5, 78)
+shape = SubResource("RectangleShape2D_8vl0u")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

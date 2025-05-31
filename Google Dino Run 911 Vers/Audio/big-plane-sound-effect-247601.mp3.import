@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dijufy5jtrnir"
+path="res://.godot/imported/big-plane-sound-effect-247601.mp3-09f79ccd87cd7754b8831a944a8730f0.mp3str"
+
+[deps]
+
+source_file="res://Google Dino Run 911 Vers/Audio/big-plane-sound-effect-247601.mp3"
+dest_files=["res://.godot/imported/big-plane-sound-effect-247601.mp3-09f79ccd87cd7754b8831a944a8730f0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

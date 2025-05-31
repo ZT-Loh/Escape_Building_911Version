@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c6qmub3lspip1"
+path="res://.godot/imported/explode.animation.aseprite-aff2fe53a0841779293fcdfeeea16e16.res"
+
+[deps]
+
+source_file="res://Google Dino Run 911 Vers/animation/explode.animation.aseprite"
+dest_files=["res://.godot/imported/explode.animation.aseprite-aff2fe53a0841779293fcdfeeea16e16.res"]
+
+[params]
+
